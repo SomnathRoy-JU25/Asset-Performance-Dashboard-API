@@ -41,3 +41,5 @@
     git clone https://github.com/SomnathRoy-JU25/Asset-Performance-Dashboard-API.git
     ```
 
+## Documentation of PostmanAPI for API testing
+[Postman API Documentation](https://documenter.getpostman.com/view/29700625/2sA2rCU2DL)
