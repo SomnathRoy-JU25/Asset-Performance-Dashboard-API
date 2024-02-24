@@ -20,9 +20,9 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(assets_router, prefix="/asset", tags=["assets"])
-app.include_router(performance_metrics_router, prefix="/performance-metrics", tags=["performance metrics"])
-app.include_router(insights_router, prefix="/insights", tags=["insights"])
+app.include_router(assets_router, prefix="/api/asset", tags=["assets"])
+app.include_router(performance_metrics_router, prefix="/api/performance-metrics", tags=["performance metrics"])
+app.include_router(insights_router, prefix="/api/insights", tags=["insights"])
 
 # Testing route
 @app.get("/")
