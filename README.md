@@ -12,8 +12,14 @@
     ```bash
     python -m venv path\venv
     ```
+## Installation
 
-### Installing Dependencies
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/SomnathRoy-JU25/Asset-Performance-Dashboard-API.git
+    ```
+## Installing Dependencies
 1. Install FastAPI:
 
     ```bash
@@ -37,13 +43,6 @@
     python -m uvicorn main:app --reload
     ```
 
-## Installation
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/SomnathRoy-JU25/Asset-Performance-Dashboard-API.git
-    ```
 
 ## Documentation of PostmanAPI for API Testing
 
