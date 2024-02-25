@@ -8,7 +8,8 @@
 ### Setting Up Virtual Environment (For VSCode)
 1. Open your terminal.
 2. Run the following command to create a virtual environment:
-    ```bash
+
+   ```bash
     python -m venv path\venv
     ```
 ## Installation
