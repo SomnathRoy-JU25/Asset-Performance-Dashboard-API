@@ -1,14 +1,11 @@
 from fastapi import FastAPI # Import FastAPI
 from fastapi.middleware.cors import CORSMiddleware # Import CORS
-from config.database import db  # Import db object from config/database.py
-
-# Import routers
-from routes.performance_metrics_router import performance_metrics_router
+# import Routes and Functions
 from routes.assets_router import assets_router
-from routes.insights_router import insights_router
+from routes.performance_metrics_router import performance_metrics_router
+from middleware.auth import auth
 
 app = FastAPI()  # Initialize FastAPI
-db = db  # Initialize db object
 
 # CORS middleware
 app.add_middleware(
@@ -19,12 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers
-app.include_router(assets_router, prefix="/api/asset", tags=["assets"])
-app.include_router(performance_metrics_router, prefix="/api/performance-metrics", tags=["performance metrics"])
-app.include_router(insights_router, prefix="/api/insights", tags=["insights"])
-
-# Testing route
-@app.get("/")
-async def read_root():
-    return {"success": True, "message": "Your server is up and running ..."}
+#  Setting the Routes
+app.include_router(auth)
+app.include_router(assets_router, prefix="/api/assets", tags=["Assets"])
+app.include_router(performance_metrics_router, prefix="/api/performance", tags=["Performance Matrix"])
