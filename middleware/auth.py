@@ -129,9 +129,13 @@ async def get_insights( current_user: Annotated[User, Depends(get_current_active
         assets_with_high_failure_rates = await identify_assets_with_high_failure_rates()
 
         return {
-            "average_downtime": average_downtime,
-            "total_maintenance_costs": total_maintenance_costs,
-            "assets_with_high_failure_rates": assets_with_high_failure_rates
+            "success": True,
+            "data": {
+                "average_downtime": average_downtime,
+                "total_maintenance_costs": total_maintenance_costs,
+                "assets_with_high_failure_rates": assets_with_high_failure_rates
+            },
+            "message": "Insights fetched successfully"
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

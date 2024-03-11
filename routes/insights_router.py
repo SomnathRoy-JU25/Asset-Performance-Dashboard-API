@@ -1,6 +1,5 @@
 from fastapi import HTTPException
 from motor.motor_asyncio import AsyncIOMotorClient
-
 MONGODB_URI =  "mongodb+srv://somnathroy0340:nWXgQlhalZzcS12X@cluster0.okzjo3u.mongodb.net/?retryWrites=true&w=majority&appName=FastAPI"
 
 # Function to get the MongoDB database and collection
@@ -26,6 +25,7 @@ async def calculate_average_downtime():
         print(error_message)
         raise HTTPException(status_code=500, detail=error_message)
 
+
 # Function to calculate total maintenance costs
 async def calculate_total_maintenance_costs():
     try:
@@ -43,13 +43,14 @@ async def calculate_total_maintenance_costs():
         print(error_message)
         raise HTTPException(status_code=500, detail=error_message)
 
+
 # Function to identify assets with high failure rates
 async def identify_assets_with_high_failure_rates():
     try:
         db, collection = await get_database_and_collection()
         threshold = 0.1  # Define threshold for high failure rate
         pipeline = [
-            {"$group": {"_id": "$asset_id", "averageFailureRate": {"$avg": "$failure_rate"}}},
+            {"$group": {"_id": "$asset_name", "averageFailureRate": {"$avg": "$failure_rate"}}},
             {"$match": {"averageFailureRate": {"$gt": threshold}}}
         ]
         cursor = collection.aggregate(pipeline)
