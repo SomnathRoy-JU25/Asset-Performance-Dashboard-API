@@ -42,7 +42,10 @@
     ```bash
     python -m uvicorn main:app --reload
     ```
-
+2. Run without Creating Pycache files
+   ```bash
+   $env:PYTHONDONTWRITEBYTECODE=1; uvicorn main:app --reload
+   ```
 
 ## Documentation of PostmanAPI for API Testing
 
